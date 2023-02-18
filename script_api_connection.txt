@@ -1,14 +1,14 @@
 let
-RequestUrl = "<GET-REQUEST-URL>",
-ApiAuthKey = "Bearer <BEARER-API-KEY>",
-result = Web.Contents(
-    RequestUrl,
-    [
-        Headers = [#"Content-Type" = "application/json", #"Authorization" = ApiAuthKey],
-        Content = Text.ToBinary("{}")
-    ]
-),
-FormatAsJson = Json.Document(result)
+    RequestUrl = "<GET-REQUEST-URL>", -- Insert here the request URL.
+    ApiAuthKey = "Bearer <BEARER-API-KEY>", -- Insert here your API Bearer Key
+    result = Web.Contents(
+        RequestUrl,
+        [
+            Headers = [#"Content-Type" = "application/json", #"Authorization" = ApiAuthKey],
+            Content = Text.ToBinary("{}")
+        ]
+    ),
+    FormatAsJson = Json.Document(result)
 
 in
-FormatAsJson
+    FormatAsJson
