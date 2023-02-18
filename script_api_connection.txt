@@ -1,0 +1,14 @@
+let
+RequestUrl = "<GET-REQUEST-URL>",
+ApiAuthKey = "Bearer <BEARER-API-KEY>",
+result = Web.Contents(
+    RequestUrl,
+    [
+        Headers = [#"Content-Type" = "application/json", #"Authorization" = ApiAuthKey],
+        Content = Text.ToBinary("{}")
+    ]
+),
+FormatAsJson = Json.Document(result)
+
+in
+FormatAsJson
